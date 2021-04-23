@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../includes/header.ejs %>
+</head>
+
+<body>
+  <% include ../includes/nav.ejs %>
+  <h1><%= title %></h1>
+ <div class="jumbotron text-center"> 
+    <div class="container">
+        <form action="/pr01" method="POST">
+        First Name: <input type="text" name="fn" />
+        <br/>
+        Last Name: <input type="text" name="ln" />
+        <br/>
+        <button type="submit">Submit</button>
+        </form>
+    </div>
+ </div>
+</body>
+</html>

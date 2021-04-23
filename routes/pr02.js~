@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+
+router.post('/',(req, res, next) => {
+    res.render('forms/inputback', { title: 'Assignment 01',  path: '/pr02', fname: req.body.fn, lname: req.body.ln } );
+});
+
+router.get('/',(req, res, next) => {
+    res.render('forms/inputback', { title: 'Assignment 01',  path: '/pr02', fname: req.body.fn, lname: req.body.ln } );
+});
+module.exports = router;
