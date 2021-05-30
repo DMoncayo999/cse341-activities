@@ -6,8 +6,11 @@ router.get('/',(req, res, next) => {
 });
 
 router.post('/',(req, res, next) => {
-    res.render('forms/showData', { title: 'Assignment 01',  path: '/pr01', fname: req.body.fn, lname: req.body.ln,
-    add: req.body.add } );
+    res.render('forms/showData', { title: 'Assignment 01', 
+        path: '/pr01', 
+        fname: req.body.fn, 
+        lname: req.body.ln,
+        add: req.body.add } );
 });
 
 module.exports = router;

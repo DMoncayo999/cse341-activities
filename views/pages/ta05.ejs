@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../includes/header.ejs %>
+  <% if (style) { %>
+    <style>
+      .jumbotron {
+        background-color: black;
+      }
+    </style>
+    <% } %>
+  </head>
+
+  <body>
+    <% include ../includes/nav.ejs %>
+    <div class="jumbotron text-center">
+      <div class="container">
+        <h1><%= title %></h1>
+        <p>This is the placeholder for Team Activity 05</p>
+      </div>
+    </div>
+    <div>
+    <form action="/ta05/change-style" method="GET">
+      <button type="submit">Change Style</button>
+    </form>
+    </div>
+    
+    <div>
+    <form action="/ta05/counter" method="POST">
+      <input type="hidden" value="true" name="increase" />
+      <button type="submit">increment</button>
+    </form>
+    <form action="/ta05/counter" method="POST">
+      <input type="hidden" value="false" name="increase" />
+      <button type="submit">decrement</button>
+    </form>
+    </div>
+    <p>Count: <%= counter %></p>
+    
+    <div>
+    <form action="/ta05/reset" method="GET">
+      <button type="submit">destroy session</button>
+    </form>
+    </div>
+  </body>
+</html>
