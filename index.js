@@ -8,8 +8,24 @@ const path = require('path');
 const session = require('express-session');
 
 const PORT = process.env.PORT || 5000; // So we can run on heroku || (OR) localhost:5000
+const cors = require('cors');
 
 const app = express();
+
+//Heroku connection
+const corsOptions = {
+    origin: "https://git.heroku.com/cse341-team-activities.git",
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+
+const options = {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    family: 4
+};
 
 // Route setup. You can implement more in the future!
 const pr01Routes = require('./routes/pr01'); //route to pr01.js file week1
