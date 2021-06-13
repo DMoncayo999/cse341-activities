@@ -25,7 +25,7 @@ module.exports.getItems = (req, res, next) => {
             console.log("getItems received page", page)
             const indexStart = (page - 1) * ITEMS_PER_PAGE 
             const indexEnd = page * ITEMS_PER_PAGE
-            jsonRenderData = jsonData.filter((item, index) => index >= indexStart && index <= indexEnd )
+            jsonRenderData = jsonData.filter((item, index) => index >= indexStart && index < indexEnd )
             res.render('pages/ta03', {
                 title: 'Team Activity 03 & 08',
                 searchedValue: '',
