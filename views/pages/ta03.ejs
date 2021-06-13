@@ -23,7 +23,7 @@
           <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
         </div>
         </form>
-        <% data.forEach(dataItem=> { %>
+        <% data.forEach(dataItem => { %>
           <div class="col-12 col-sm-6 col-md-4 mb-3">
             <div class="card">
               <img src="<%= dataItem.imageUrl %>" class="card-img-top img-card-responsive" alt="<%= dataItem.name %>">
@@ -50,6 +50,15 @@
           </div>
           <% }) %>
       </div>
+     <section class="pagination">
+     <% console.log("ITEMS_PER_PAGE", ITEMS_PER_PAGE, "current page", page, "total Pages", totalPages ) %>
+        <a href="/ta03?page=<%= ((parseInt(page)-1)>=totalPages) ? totalPages: parseInt(page)-1 %>"><<</a>
+        <a href="/ta03?page=1">1/<%= totalPages %></a>
+        <a href="/ta03?page=<%= ((parseInt(page)+1)>=totalPages) ? totalPages: parseInt(page)+1 %>"><%= (parseInt(page)>=totalPages) ? totalPages: parseInt(page)+1 %>/<%= totalPages %></a>
+        <a href="/ta03?page=<%= ((parseInt(page)+1)>=totalPages) ? totalPages: parseInt(page)+1 %>">>></a>
+        <a href="/ta03?page=<%= totalPages %>">>|</a>
+      </section>
+       
     </div>
 </body>
 </html>
