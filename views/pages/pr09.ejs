@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../includes/header.ejs %>
+  <script>
+  function cleanUL() { document.querySelector('#list').innerHTML = '' } 
+  </script>
+</head>
+
+<body>
+  <% include ../includes/nav.ejs %>
+    <div class="jumbotron text-center">
+      <div class="container">
+        <h1>
+          <%= title %>
+        </h1>
+      </div>
+    </div>
+    <ul id="list">
+    
+        <% dataItems.forEach(dataItem => { %>
+          <li><h3 class="card-title"><%= dataItem.name %></h3></li>
+        <% }) 
+        dataItems = []%>
+     </ul>
+     <section class="pagination">  
+        <a href="/pr09?show=<%= previous %>"  onClick="cleanUL()" >Previous</a>
+        <a href="/pr09?show=<%= next %>" onClick="cleanUL()" >Next</a>
+     </section>
+   </div>
+</body>
+</html>
