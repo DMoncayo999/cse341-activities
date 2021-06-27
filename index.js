@@ -30,6 +30,7 @@ const options = {
 // Route setup. You can implement more in the future!
 const pr01Routes = require('./routes/pr01'); //route to pr01.js file week1
 const pr09Routes = require('./routes/pr09'); //route to pr09.js file week9
+const pr10Routes = require('./routes/pr10'); //route to pr10.js file week10
 const ta01Routes = require('./routes/ta01');
 const ta02Routes = require('./routes/ta02');
 const ta03Routes = require('./routes/ta03'); 
@@ -50,8 +51,9 @@ app
   
    .use(bodyParser({extended: false})) // For parsing the body of a POST
    
-   .use('/pr01', pr01Routes)//for pr01.js
-   .use('/pr09', pr09Routes)//for pr09.js
+   .use('/pr01', pr01Routes) //for pr01.js
+   .use('/pr09', pr09Routes) //for pr09.js
+   .use('/pr10', pr10Routes) //for pr10.js
    .use('/ta01', ta01Routes)
    .use('/ta02', ta02Routes) 
    .use('/ta03', ta03Routes) 

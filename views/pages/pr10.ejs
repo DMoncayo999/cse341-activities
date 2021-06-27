@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../includes/header.ejs %>
+  <script>
+  function cleanUL() { document.querySelector('#list').innerHTML = '' } 
+  </script>
+</head>
+
+<body>
+  <% include ../includes/nav.ejs %>
+    <div class="jumbotron text-center">
+      <div class="container">
+        <h1>
+          <%= title %>
+        </h1>
+      </div>
+    </div>
+   <div>
+       <form method="POST" action="/pr10/insert">
+           <label for="name">Hero Name</label>
+           <input name="name" type="text" prompt="Enter Hero name" />
+           <input type="submit" name="send"/>
+           <input type="reset" name="cancel" />
+       </form>
+   </div>
+   <h4>Avenger List</h4>
+   <div>
+    <ul id="list">
+    
+        <% dataItems.forEach(dataItem => { %>
+          <li><h3 class="card-title"><%= dataItem.name %></h3></li>
+        <% }) 
+        dataItems = []%>
+     </ul>
+   </div>
+</body>
+</html>
