@@ -9,7 +9,7 @@ const data = require('../data/pr10-data.json')
 router.get('/', (req, res, next) => {
     console.log("Data", data)
     res.render('pages/pr10', {
-        title: 'Team Activity 10',
+        title: 'Team Activity 10 & 11',
         dataItems: data.avengers,
         path: '/pr10',
     });
@@ -31,7 +31,7 @@ router.post('/insert', (req, res, next) => {
     }
     console.log(data)
     res.render('pages/pr10', {
-        title: 'Team Activity 10',
+        title: 'Team Activity 10 & 11',
         dataItems: data.avengers,
         path: '/pr10',
     });

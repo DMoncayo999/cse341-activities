@@ -4,7 +4,7 @@
 <head>
   <% include ../includes/header.ejs %>
   <script>
-  function cleanUL() { document.querySelector('#list').innerHTML = '' } 
+      function cleanUL() { document.querySelector('#list').innerHTML = '' } 
   </script>
 </head>
 
@@ -18,9 +18,10 @@
       </div>
     </div>
    <div>
-       <form method="POST" action="/pr10/insert">
+       <!--<form method="POST" action="/pr10/insert">-->
+       <form id="myForm" method="POST" action="/pr10/insert">
            <label for="name">Hero Name</label>
-           <input name="name" type="text" prompt="Enter Hero name" />
+           <input name="name" type="text" placeholder="Enter Hero name" />
            <input type="submit" name="send"/>
            <input type="reset" name="cancel" />
        </form>
@@ -36,4 +37,27 @@
      </ul>
    </div>
 </body>
+  <script>
+      var socket = io();
+      var form = document.getElementById('myForm');
+      var input = document.querySelector('input[type=text]');
+    
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (input.value) {
+          socket.emit('client message', input.value);
+          input.value = '';
+        }
+        // form.submit();
+      });
+      
+      socket.on('broadcast message', function(msg) {
+          console.log("New chat message received::", msg)
+        var item = document.createElement('li');
+        item.innerHTML = '<h3 class="card-title">'+msg+'</h3>';
+        messages = document.getElementById('list')
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+  </script>
 </html>
